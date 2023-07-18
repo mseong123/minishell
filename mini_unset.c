@@ -62,7 +62,7 @@ void	unset_env(t_shell *shell, char *str)
 	key = ft_strjoin(str, "=");
 	while (shell->local_envp[i])
 	{
-		if (!strncmp(shell->local_envp[i], key, ft_strlen(key)))
+		if (!ft_strncmp(shell->local_envp[i], key, ft_strlen(key)))
 			to_unset = 1;
 		i++;
 	}

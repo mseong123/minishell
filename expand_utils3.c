@@ -102,10 +102,10 @@ char	*ft_getenv(t_shell *shell, char *substr)
 	concat_equal = ft_strjoin(substr, "=");
 	while (shell->local_envp[i])
 	{
-		if (!strncmp(shell->local_envp[i], concat_equal, \
+		if (!ft_strncmp(shell->local_envp[i], concat_equal, \
 		ft_strlen(concat_equal)))
 		{
-			res_str = strchr(shell->local_envp[i], '=');
+			res_str = ft_strchr(shell->local_envp[i], '=');
 			res_str++;
 			free(concat_equal);
 			return (res_str);

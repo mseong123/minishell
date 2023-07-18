@@ -77,7 +77,7 @@ void	export_env(t_shell *shell, char *str)
 	parsed = 0;
 	while (shell->local_envp[i])
 	{
-		if (!strncmp(shell->local_envp[i], key, ft_strlen(key)))
+		if (!ft_strncmp(shell->local_envp[i], key, ft_strlen(key)))
 		{
 			free(shell->local_envp[i]);
 			shell->local_envp[i] = ft_strdup(str);

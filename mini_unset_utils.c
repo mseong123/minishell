@@ -25,7 +25,7 @@ void	remove_env(t_shell *shell, char *str)
 	local_envp = malloc((count_envp(shell->local_envp)) * sizeof(char *));
 	while (shell->local_envp[i])
 	{
-		if (!strncmp(shell->local_envp[i], key, ft_strlen(key)))
+		if (!ft_strncmp(shell->local_envp[i], key, ft_strlen(key)))
 			i++;
 		else
 			local_envp[j++] = ft_strdup(shell->local_envp[i++]);

@@ -44,9 +44,9 @@ char	**get_bin_path(char **local_envp)
 	i = 0;
 	while (local_envp[i])
 	{
-		if (!strncmp(local_envp[i], "PATH=", ft_strlen("PATH=")))
+		if (!ft_strncmp(local_envp[i], "PATH=", ft_strlen("PATH=")))
 		{
-			res_str = strchr(local_envp[i], '=');
+			res_str = ft_strchr(local_envp[i], '=');
 			res_str++;
 			return (ft_split(res_str, ':'));
 		}
