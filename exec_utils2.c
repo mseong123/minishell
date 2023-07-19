@@ -102,7 +102,7 @@ void	get_cmd(t_shell *shell, t_child *child)
 		}
 		else
 		{
-			if (strrchr(token->content, '/'))
+			if (ft_strrchr(token->content, '/'))
 				check_none_bin(shell, child, token);
 			else
 				check_bin(shell, child, token);
