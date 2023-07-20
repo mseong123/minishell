@@ -78,7 +78,7 @@ void	check_none_bin(t_shell *shell, t_child *child, t_list *token)
 	else
 	{
 		child->path = ft_strdup(str);
-		str = strrchr(str, '/');
+		str = ft_strrchr(str, '/');
 		str++;
 		child->cmd = ft_strdup(str);
 	}
