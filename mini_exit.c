@@ -69,6 +69,6 @@ void	wait_exit(t_shell *shell)
 	{
 		printf("exit\n");
 		free_struc(shell, 0);
-		exit(EXIT_SUCCESS);
+		exit(WEXITSTATUS(shell->exit_status));
 	}
 }
