@@ -48,18 +48,19 @@ void	check_exit_builtin(t_shell *shell, t_child *child, t_list *token)
 			|| !ft_strcmp(token->content, ">")
 			|| !ft_strcmp(token->content, ">>"))
 			token = token->next->next;
-		else if (!ft_strcmp(token->content, "exit"))
+		else if (!ft_strcmp(token->content, "exit") && arg == 0)
 		{
 			child->cmd = ft_strdup("exit");
 			token = token->next;
-		}
-		else if (arg == 0)
-		{
-			parse_exit(shell, child, token->content);
 			arg = 1;
-			token = token->next;
 		}
 		else if (arg == 1)
+		{
+			parse_exit(shell, child, token->content);
+			arg = 2;
+			token = token->next;
+		}
+		else if (arg == 2)
 			print_exit_err2(shell, child);
 	}
 }
