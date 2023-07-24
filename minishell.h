@@ -51,6 +51,7 @@ typedef struct s_shell
 	int		heredoc_exit_status;
 	int		pipefd[500][2];
 	char	**bin_path;
+	char	**builtin_bin_path;
 	char	**local_envp;
 	int		exit_status;
 }	t_shell;

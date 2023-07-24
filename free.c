@@ -27,6 +27,19 @@ void	del(void *content)
 	free(content);
 }
 
+void	free_builtin_bin_path(t_shell *shell, int newline)
+{
+	int	i;
+
+	i = 0;
+	if (shell->builtin_bin_path && !newline)
+	{
+		while (shell->builtin_bin_path[i])
+			free(shell->builtin_bin_path[i++]);
+		free(shell->builtin_bin_path);
+	}
+}
+
 void	free_struc(t_shell *shell, int newline)
 {
 	int	i;
@@ -49,6 +62,7 @@ void	free_struc(t_shell *shell, int newline)
 			free(shell->local_envp[i++]);
 		free(shell->local_envp);
 	}
+	free_builtin_bin_path(shell, newline);
 }
 
 void	free_child(t_child *child)

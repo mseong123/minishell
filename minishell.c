@@ -100,6 +100,7 @@ int	main(int argc, char **argv, char **envp)
 		printf("\n%s\n\n", WELCOME_MSG);
 		shell.local_envp = copy_envp(envp);
 		set_term();
+		shell.builtin_bin_path = get_bin_path(shell.local_envp);
 		readloop(&shell);
 	}
 	return (EXIT_SUCCESS);

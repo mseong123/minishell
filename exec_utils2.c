@@ -23,48 +23,38 @@ char	*append_slash(char *path, char *input)
 	return (res);
 }
 
-void	check_bin2(t_shell *shell, t_child *child, char *str)
+char	**check_bin_path(t_shell *shell, char *str)
 {
-	char	*comb_str;
-	int		i;
-
-	i = 0;
-	while (shell->bin_path[i])
-	{
-		comb_str = append_slash(shell->bin_path[i], str);
-		if (access(comb_str, F_OK | X_OK) == 0)
-		{
-			child->path = comb_str;
-			child->cmd = ft_strdup(str);
-		}
-		i++;
-	}
+	if (!ft_strcmp(str, "echo") || !ft_strcmp(str, "pwd"))
+		return (shell->builtin_bin_path);
+	else
+		return (shell->bin_path);
 }
 
 void	check_bin(t_shell *shell, t_child *child, t_list *token)
 {
-	char	*str;
 	char	*comb_str;
 	int		i;
+	char	**bin_path;
 
-	str = (char *)token->content;
 	i = 0;
+	bin_path = check_bin_path(shell, token->content);
 	if (check_builtin(shell, child, token) == 0)
 	{
-		while (shell->bin_path && shell->bin_path[i] && *str != '\0')
+		while (bin_path && bin_path[i] && *(char *)token->content != '\0')
 		{
-			comb_str = append_slash(shell->bin_path[i], str);
+			comb_str = append_slash(bin_path[i], token->content);
 			if (access(comb_str, F_OK | X_OK) == 0)
 			{
 				child->path = comb_str;
-				child->cmd = ft_strdup(str);
+				child->cmd = ft_strdup(token->content);
 			}
 			else
 				free(comb_str);
 			i++;
 		}
 		if (child->path == NULL)
-			print_cmd_err(shell, child, str);
+			print_cmd_err(shell, child, token->content);
 	}
 }
 
