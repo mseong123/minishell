@@ -7,7 +7,8 @@ A mini recreation of Bash <img src="https://user-images.githubusercontent.com/25
 ## What is Bash?
 A shell is a command line interface program that the user can use to interact with an operating system's services. Bash is the GNU shell, and is currently the most common shell program in Linux or MacOS (both Unix-like operating system). Windows equivalent shells are cmd.exe (command line) and PowerShell.
 
-## Project rules [Subject.pdf](https://github.com/mseong123/minishell/blob/8bb0911691442f53d57f58f104b6d35534d55621/en.subject.pdf)
+## Project rules 
+[Subject.pdf](https://github.com/mseong123/minishell/blob/8bb0911691442f53d57f58f104b6d35534d55621/en.subject.pdf)
 - Display a prompt while waiting for a new commmand.
 - Have a working history.
 - Find and launch executables (using the `PATH` variable or an absolute path).
